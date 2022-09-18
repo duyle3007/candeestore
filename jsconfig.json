@@ -1,0 +1,6 @@
+// absolute path
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}

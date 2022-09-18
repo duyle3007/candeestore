@@ -1,0 +1,18 @@
+// we can name class name as camel case and using styles.className
+// or we can using traditional class name like class-name and using styles['class-name']
+
+@import 'styles/variables.scss';
+
+.headerWrapper {
+  background: black;
+
+  &:hover {
+    background: green;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .headerWrapper {
+    background: red
+  }
+}

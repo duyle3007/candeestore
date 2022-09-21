@@ -3,11 +3,17 @@
 
 @import 'styles/variables.scss';
 
-.headerWrapper {
-  background: black;
+.top-header {
 
-  &:hover {
-    background: green;
+  .white-header {
+    background: white;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .store-name {
+      @apply text-lg;
+      color: green;
+    }
   }
 }
 

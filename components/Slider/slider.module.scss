@@ -1,0 +1,72 @@
+@import 'styles/variables.scss';
+
+.slider-container {
+  @apply flex flex-row w-full h-[350px] relative;
+
+  .slider {
+    @apply flex flex-row;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+
+    // hide scroll bar for chrome, safari and opera
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // Hide scrollbar for IE, Edge and Firefox
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+  }
+
+  .slide-item {
+    min-width: 100%;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+
+  .slides {
+    @apply object-cover w-full
+  }
+
+  .prev-btn,
+  .next-btn {
+    @apply w-[58px] h-[58px] flex justify-center items-center rounded-full text-xl bg-[#DEDED2] absolute cursor-pointer;
+    @apply top-1/2;
+
+    transition: 0.3s all;
+
+    svg {
+      opacity: 0.6;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .prev-btn {
+    @apply -left-8
+  }
+
+  .next-btn {
+    @apply -right-8;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .slider-container {
+    height: 100%;
+
+    .prev-btn {
+      @apply left-0;
+    }
+
+    .next-btn {
+      @apply right-0;
+    }
+  }
+}

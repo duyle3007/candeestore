@@ -16,5 +16,10 @@ module.exports = {
     },
     extend: {},
   },
+  extend: {
+    colors: {
+      gray: '#DEDED2'
+    }
+  },
   plugins: [],
 }

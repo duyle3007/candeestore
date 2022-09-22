@@ -4,23 +4,30 @@ import styles from './slider.module.scss'
 
 const DEFAULT_AUTOPLAY_TIME = 3000
 
+// STILL HAVE BUG IN CAROUSEL
+// EVERY TIME SCROLL, IT WILL CAUSE PAGE SCROLL TO SLIDER ELEMENT
+
 const Slider = ({ sliderList = [], autoplayTime = DEFAULT_AUTOPLAY_TIME }) => {
   const [currentSlider, setCurrentSlider] = useState(0)
 
-  useEffect(() => {
-    const startAutoPlay = setInterval(() => {
-      let nextSliderIndex
-      setCurrentSlider(prevTime => {
-        nextSliderIndex = prevTime >= sliderList.length - 1 ? 0 : prevTime + 1
-        return nextSliderIndex
-      })
+  // useEffect(() => {
+  //   const startAutoPlay = setInterval(() => {
+  //     let nextSliderIndex
+  //     setCurrentSlider(prevTime => {
+  //       nextSliderIndex = prevTime >= sliderList.length - 1 ? 0 : prevTime + 1
+  //       return nextSliderIndex
+  //     })
 
-      document.querySelector(`#slide-${nextSliderIndex}`).scrollIntoView({ behavior: 'smooth' });
-    }, autoplayTime)
+  //     const sliderElement = document.querySelector(`#slide-${nextSliderIndex}`)
+  //     console.log('sliderElement', sliderElement)
+  //     sliderElement.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
 
-    return () =>
-      clearInterval(startAutoPlay)
-  }, [])
+  //     // document.getElementsByClassName('slider').style['transform'] = translate3d(-2400px, 0px, 0px);
+  //   }, autoplayTime)
+
+  //   return () =>
+  //     clearInterval(startAutoPlay)
+  // }, [])
 
   const onNextSlider = () => {
     // Reset slider if we scroll to the end of list

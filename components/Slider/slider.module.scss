@@ -10,6 +10,8 @@
     overflow-y: hidden;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
 
     // hide scroll bar for chrome, safari and opera
     &::-webkit-scrollbar {
@@ -18,7 +20,6 @@
 
     // Hide scrollbar for IE, Edge and Firefox
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
   }
 

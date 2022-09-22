@@ -4,17 +4,9 @@
 @import 'styles/variables.scss';
 
 .top-header {
+  @apply flex flex-col;
 
-  .white-header {
-    background: white;
-    max-width: 1200px;
-    margin: 0 auto;
 
-    .store-name {
-      @apply text-lg;
-      color: green;
-    }
-  }
 }
 
 @media screen and (max-width: $phone-max) {

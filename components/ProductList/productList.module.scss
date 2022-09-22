@@ -1,0 +1,36 @@
+.product-list {
+  @apply max-w-[1200px] grid mx-auto mt-16 gap-16 grid-cols-5;
+
+  .product {
+    @apply flex flex-col justify-center cursor-pointer;
+    transition: all 0.3 all;
+
+    &:hover {
+      @apply shadow-lg
+    }
+
+    .product-info {
+      @apply p-2 gap-2 flex flex-col;
+    }
+
+    .product-image {
+      @apply border-[1px] border-gray flex justify-center items-center w-full mb-4;
+    }
+
+    .product-date {
+      @apply text-sm
+    }
+
+    .product-price {
+      @apply flex items-end gap-2;
+
+      .price {
+        @apply text-green
+      }
+
+      .old-price {
+        @apply text-sm line-through
+      }
+    }
+  }
+}

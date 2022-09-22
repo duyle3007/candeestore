@@ -1,0 +1,35 @@
+.white-header {
+  @apply flex bg-white w-full items-center p-6 justify-between;
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .left {
+    @apply flex flex-row;
+  }
+
+  .store-name {
+    @apply text-xl font-bold;
+    color: green;
+  }
+
+  .search-bar {
+    @apply ml-3 flex justify-center items-center;
+
+    input {
+      @apply border-2 border-gray mr-3 rounded
+    }
+  }
+
+  .right {
+    @apply flex items-center;
+  }
+
+  .login-signup {
+    @apply mr-3
+  }
+
+  .cart {
+    @apply flex items-center gap-3 cursor-pointer
+  }
+}

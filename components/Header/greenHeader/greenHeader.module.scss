@@ -1,0 +1,7 @@
+.green-header {
+  @apply bg-green sticky top-0 left-0;
+
+  .green-header-content {
+    @apply max-w-[1200px] mx-auto flex justify-between py-4 text-white cursor-pointer;
+  }
+}

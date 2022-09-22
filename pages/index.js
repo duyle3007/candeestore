@@ -1,3 +1,4 @@
+import ProductList from 'components/ProductList/productList'
 import Slider from 'components/Slider/slider'
 import { useSelector } from 'react-redux'
 
@@ -10,8 +11,9 @@ const SLIDER_LIST = [
 export default function Home() {
   const loading = useSelector(state => state.productReducer.loading)
   return (
-    <div className="max-w-[1200px] m-auto flex">
+    <div className="max-w-[1200px] m-auto flex flex-col">
       <Slider sliderList={SLIDER_LIST} />
+      <ProductList />
     </div>
   )
 }

@@ -4,9 +4,7 @@
 @import 'styles/variables.scss';
 
 .top-header {
-  @apply flex flex-col;
-
-
+  @apply contents;
 }
 
 @media screen and (max-width: $phone-max) {

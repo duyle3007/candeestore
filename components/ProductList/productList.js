@@ -17,8 +17,8 @@ const LIST_PRODUCT = [
 const ProductList = () => {
   return (
     <div className={styles['product-list']}>
-      {LIST_PRODUCT.map((product) =>
-        <div className={styles['product']}>
+      {LIST_PRODUCT.map((product, index) =>
+        <div className={styles['product']} key={index}>
           <div className={styles['product-image']}>
             <img src={product.url} />
           </div>

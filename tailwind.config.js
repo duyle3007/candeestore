@@ -19,7 +19,8 @@ module.exports = {
         white: '#fff',
         gray: '#DEDED2',
         green: '#006432',
-        cyan: '#01B6D3'
+        cyan: '#01B6D3',
+        black: '#000'
       }
     },
   },

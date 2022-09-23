@@ -1,7 +1,19 @@
 .green-header {
-  @apply bg-green sticky top-0 left-0;
+  @apply bg-green sticky top-0 left-0 block z-[1];
 
   .green-header-content {
-    @apply max-w-[1200px] mx-auto flex justify-between py-4 text-white cursor-pointer;
+    @apply max-w-[1200px] mx-auto flex justify-between text-white cursor-pointer;
+  }
+
+  .header-section {
+    @apply h-[50px] flex flex-col justify-center relative;
+  }
+
+  .dropdown-section {
+    @apply absolute top-[90%] -left-[50px] shadow bg-white px-8 w-auto min-w-[170px] hidden text-black;
+  }
+
+  .header-section:hover>.dropdown-section {
+    @apply flex flex-col
   }
 }

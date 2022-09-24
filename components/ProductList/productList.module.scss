@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .product-list {
   @apply max-w-[1200px] grid mx-auto mt-16 gap-16 grid-cols-5;
 
@@ -30,6 +32,13 @@
       background-color: rgba(255, 255, 255, 0.5);
     }
 
+    .cart-icon {
+      @apply rounded-full bg-gray w-10 h-10 flex justify-center items-center;
+      &:hover {
+        @apply opacity-60;
+      }
+    }
+
     .product-date {
       @apply text-sm;
     }
@@ -55,5 +64,11 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .product-list {
+    @apply grid-cols-1;
   }
 }

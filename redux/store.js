@@ -1,4 +1,3 @@
-// This is traditionally way to write redux
 // Because createStore have been deprecated, redux official page have recommended to use Redux-toolkit for quick and easy way
 // Therefore I will use redux-toolkit to apply redux
 

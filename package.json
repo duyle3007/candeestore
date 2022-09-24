@@ -8,6 +8,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "antd": "^4.23.2",
+    "firebase": "^9.10.0",
     "lodash": "^4.17.21",
     "next": "latest",
     "react": "17.0.2",

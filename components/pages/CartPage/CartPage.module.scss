@@ -1,0 +1,39 @@
+.cart-page {
+  @apply max-w-[1200px] mx-auto;
+
+  .cart-list {
+    @apply w-1/2 flex flex-col gap-8 mt-8;
+  }
+
+  .cart-item {
+    @apply flex gap-4 relative;
+    img {
+      @apply w-[90px] h-full;
+    }
+    .item-info {
+      @apply flex flex-col gap-2 justify-center;
+    }
+
+    .delete-icon {
+      @apply absolute top-4 right-8;
+    }
+  }
+
+  .payment-btn {
+    @apply px-8 py-4 bg-green text-white;
+    &:hover {
+      @apply opacity-60;
+    }
+  }
+}
+
+.payment-success {
+  @apply max-w-[1200px] mx-auto flex flex-col w-full py-16 justify-center items-center;
+  font-size: 24px;
+  svg {
+    @apply mb-8;
+    font-size: 54px;
+    filter: invert(27%) sepia(49%) saturate(1038%) hue-rotate(105deg)
+      brightness(94%) contrast(102%);
+  }
+}

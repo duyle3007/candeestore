@@ -30,6 +30,12 @@
 
   .login-signup {
     @apply mr-3;
+    span {
+      @apply cursor-pointer;
+      &:hover {
+        @apply underline;
+      }
+    }
   }
 
   .cart {

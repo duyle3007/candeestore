@@ -8,7 +8,7 @@ const SLIDER_LIST = [
   "http://cdn.tgdd.vn/Files/2022/04/21/1427620/4-meo-phan-biet-nuoc-hoa-that-gia-chi-can-vai-thao-tac-don-gian-202204211028465475.jpg",
 ];
 
-export default function Home() {
+export default function Home({ example }) {
   const loading = useSelector((state) => state.product.loading);
   return (
     <div className="max-w-[1200px] m-auto flex flex-col">
@@ -16,4 +16,13 @@ export default function Home() {
       <ProductList />
     </div>
   );
+}
+
+// Can use below function to fetching data in SSR
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      example: "1",
+    }, // will be passed to the page component as props
+  };
 }

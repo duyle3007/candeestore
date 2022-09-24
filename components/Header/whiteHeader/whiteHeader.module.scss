@@ -17,7 +17,10 @@
     @apply ml-3 flex justify-center items-center;
 
     input {
-      @apply border-2 border-gray mr-3 rounded
+      @apply border-2 border-gray mr-3 rounded;
+    }
+    svg {
+      @apply cursor-pointer;
     }
   }
 
@@ -26,10 +29,10 @@
   }
 
   .login-signup {
-    @apply mr-3
+    @apply mr-3;
   }
 
   .cart {
-    @apply flex items-center gap-3 cursor-pointer
+    @apply flex items-center gap-3 cursor-pointer;
   }
 }

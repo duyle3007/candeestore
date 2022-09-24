@@ -10,10 +10,24 @@
   }
 
   .dropdown-section {
-    @apply absolute top-[90%] -left-[50px] shadow bg-white px-8 w-auto min-w-[170px] hidden text-black;
+    @apply absolute top-[90%] -left-[50px]  shadow bg-white w-auto min-w-[170px] hidden text-black;
   }
 
-  .header-section:hover>.dropdown-section {
-    @apply flex flex-col
+  .header-section:hover > .dropdown-section {
+    @apply flex flex-col;
+  }
+
+  .dropdown-item {
+    @apply px-4 pt-4 pb-4;
+    &:hover {
+      @apply bg-gray;
+    }
+  }
+
+  .section-name {
+    @apply flex items-center;
+    svg {
+      @apply ml-2;
+    }
   }
 }

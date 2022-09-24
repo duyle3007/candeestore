@@ -1,20 +1,19 @@
-import * as type from 'redux/types/productType'
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  loading: false
-}
+const productReducer = createSlice({
+  name: "product",
+  initialState: {
+    loading: false,
+    productList: [],
+  },
+  reducers: {
+    addProduct: (state, action) => {
+      console.log("action", action);
+      state.productList = [...state.productList, action.payload];
+    },
+  },
+});
 
-const productReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case type.ON_LOADING:
-      return {
-        ...state,
-        loading: action.data,
-      };
-    default:
-      return state;
+export const { addProduct } = productReducer.actions;
 
-  }
-}
-
-export default productReducer
+export default productReducer.reducer;

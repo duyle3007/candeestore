@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import store from "redux/store";
+import { store } from "redux/store";
 import Header from "components/Header/header";
 
 import "styles/globals.scss";
@@ -13,4 +13,4 @@ function Layout({ Component, pageProps }) {
   );
 }
 
-export default Layout
+export default Layout;

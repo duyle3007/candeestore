@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "antd": "^4.23.2",
     "lodash": "^4.17.21",
     "next": "latest",

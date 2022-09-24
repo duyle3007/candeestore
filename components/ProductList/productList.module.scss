@@ -6,7 +6,7 @@
     transition: all 0.3 all;
 
     &:hover {
-      @apply shadow-lg
+      @apply shadow-lg;
     }
 
     .product-info {
@@ -14,23 +14,46 @@
     }
 
     .product-image {
-      @apply border-[1px] border-gray flex justify-center items-center w-full mb-4;
+      @apply border-[1px] border-gray flex justify-center items-center w-full mb-4 relative;
+    }
+
+    .product-image:hover > .image-info {
+      @apply flex;
+      animation-name: slide-down;
+      animation-duration: 0.3s;
+      background: primary;
+      height: 100%;
+    }
+
+    .image-info {
+      @apply hidden absolute top-0 left-0 w-full h-full justify-center items-center;
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
     .product-date {
-      @apply text-sm
+      @apply text-sm;
     }
 
     .product-price {
       @apply flex items-end gap-2;
 
       .price {
-        @apply text-green
+        @apply text-green;
       }
 
       .old-price {
-        @apply text-sm line-through
+        @apply text-sm line-through;
       }
     }
+  }
+}
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

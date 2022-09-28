@@ -15,6 +15,10 @@
       @apply p-2 gap-2 flex flex-col;
     }
 
+    .product-title {
+      @apply font-medium;
+    }
+
     .product-image {
       @apply border-[1px] border-gray flex justify-center items-center w-full mb-4 relative;
     }

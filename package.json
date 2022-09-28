@@ -8,6 +8,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "antd": "^4.23.2",
+    "axios": "^0.27.2",
     "firebase": "^9.10.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",

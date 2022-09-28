@@ -1,5 +1,7 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { notification } from "antd";
+import { HomepageContext } from "components/pages/Homepage/homepage";
+import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "redux/reducers/productReducer";
 
@@ -87,6 +89,7 @@ const LIST_PRODUCT = [
 
 const ProductList = () => {
   const dispatch = useDispatch();
+  const { initData, setInitData } = useContext(HomepageContext);
 
   const addProductToCart = (product) => {
     dispatch(addProduct(product));
@@ -110,8 +113,18 @@ const ProductList = () => {
             <div className={styles["product-title"]}>{product.name}</div>
             <div className={styles["product-date"]}>{product.hsd}</div>
             <div className={styles["product-price"]}>
-              <div className={styles["price"]}>{product.price}₫</div>
-              <div className={styles["old-price"]}>{product.oldPrice}₫</div>
+              <div className={styles["price"]}>
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(product.price)}
+              </div>
+              <div className={styles["old-price"]}>
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(product.oldPrice)}
+              </div>
             </div>
           </div>
         </div>

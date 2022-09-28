@@ -1,4 +1,4 @@
-import { SearchOutlined, CaretDownOutlined } from "@ant-design/icons";
+import Dropdown from "components/Dropdown/dropdown";
 
 import styles from "./greenHeader.module.scss";
 
@@ -17,18 +17,12 @@ const GreenHeader = () => {
         {HEADER_CONTENT.map((section) => (
           <div className={styles["header-section"]} key={section.name}>
             <div className={styles["section-name"]}>
-              {section.name}
-              {section.subMenu ? <CaretDownOutlined /> : null}
+              {section.subMenu ? (
+                <Dropdown title={section.name} menu={section.subMenu} />
+              ) : (
+                section.name
+              )}
             </div>
-            {section.subMenu ? (
-              <div className={styles["dropdown-section"]}>
-                {section.subMenu.map((menu) => (
-                  <div key={menu} className={styles["dropdown-item"]}>
-                    {menu}
-                  </div>
-                ))}
-              </div>
-            ) : null}
           </div>
         ))}
       </div>

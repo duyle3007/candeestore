@@ -20,6 +20,7 @@ const CartPage = () => {
 
   const onPayment = () => {
     setFinishPay(true);
+    dispatch(removeProduct([]));
   };
   if (finishPay) {
     return (

@@ -1,0 +1,21 @@
+.dropdown {
+  @apply relative flex items-center;
+  .dropdown-section {
+    @apply absolute top-[90%] shadow bg-white w-auto min-w-[170px] hidden text-black z-50;
+  }
+
+  .dropdown-title {
+    @apply flex items-center gap-2 cursor-pointer;
+  }
+
+  &:hover > .dropdown-section {
+    @apply flex flex-col;
+  }
+
+  .dropdown-item {
+    @apply px-4 pt-4 pb-4 cursor-pointer;
+    &:hover {
+      @apply bg-gray;
+    }
+  }
+}

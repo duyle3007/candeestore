@@ -1,4 +1,5 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { notification } from "antd";
 import { useDispatch } from "react-redux";
 import { addProduct } from "redux/reducers/productReducer";
 
@@ -86,6 +87,11 @@ const LIST_PRODUCT = [
 
 const ProductList = () => {
   const dispatch = useDispatch();
+
+  const addProductToCart = (product) => {
+    dispatch(addProduct(product));
+    notification.success({ message: "Đã thêm sản phẩm" });
+  };
   return (
     <div className={styles["product-list"]}>
       {LIST_PRODUCT.map((product, index) => (
@@ -95,7 +101,7 @@ const ProductList = () => {
             <div className={styles["image-info"]}>
               <div className={styles["cart-icon"]}>
                 <ShoppingCartOutlined
-                  onClick={() => dispatch(addProduct(product))}
+                  onClick={() => addProductToCart(product)}
                 />
               </div>
             </div>

@@ -1,0 +1,30 @@
+.signup-page {
+  @apply max-w-[1200px] mx-auto;
+
+  h1 {
+    @apply text-lg font-semibold;
+  }
+
+  form {
+    @apply flex flex-col px-64 bg-[#EEEEEE] rounded mt-8 py-8 gap-4;
+    button {
+      @apply px-8 py-4 bg-green text-white;
+      &:hover {
+        @apply opacity-60;
+      }
+    }
+  }
+
+  .form-field {
+    @apply flex flex-col;
+    label {
+      @apply mb-4 text-base font-semibold;
+    }
+    input {
+      @apply h-10 px-2;
+    }
+  }
+  .error-field {
+    @apply text-red;
+  }
+}

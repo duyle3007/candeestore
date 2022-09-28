@@ -6,7 +6,7 @@ import WhiteHeader from "./whiteHeader/whiteHeader";
 import styles from "./header.module.scss";
 import { useRouter } from "next/router";
 
-const PAGE_WITHOUT_GREEN_HEADER = ["/cart"];
+const PAGE_WITHOUT_GREEN_HEADER = ["/cart", "/signup", "/login"];
 
 const Header = () => {
   const router = useRouter();

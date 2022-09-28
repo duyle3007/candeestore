@@ -1,13 +1,14 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
-import { auth } from "utils/firebase";
+import { useRouter } from "next/router";
 import { notification, Spin } from "antd";
-import { startLoading, stopLoading } from "redux/reducers/productReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { auth } from "utils/firebase";
+import { startLoading, stopLoading } from "redux/reducers/productReducer";
 import { updateAccessToken, updateUserData } from "redux/reducers/userReducer";
-import { useRouter } from "next/router";
+import useUserExist from "utils/hook/useUserExist";
 
 import styles from "./LoginPage.module.scss";
 
@@ -20,6 +21,9 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const loading = useSelector((state) => state.product.loading);
+
+  useUserExist();
+
   const formik = useFormik({
     initialValues: {
       email: "",

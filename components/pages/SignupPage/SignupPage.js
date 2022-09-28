@@ -1,18 +1,22 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
-import { registerWithEmailAndPassword } from "utils/firebase";
-
-import styles from "./SignupPage.module.scss";
 import { notification, Spin } from "antd";
-import { startLoading, stopLoading } from "redux/reducers/productReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+
+import { registerWithEmailAndPassword } from "utils/firebase";
+import { startLoading, stopLoading } from "redux/reducers/productReducer";
+import useUserExist from "utils/hook/useUserExist";
+
+import styles from "./SignupPage.module.scss";
 
 const SignupPage = () => {
   const loading = useSelector((state) => state.product.loading);
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useUserExist();
+
   const formik = useFormik({
     initialValues: {
       full_name: "",

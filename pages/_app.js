@@ -15,7 +15,9 @@ function Layout({ Component, pageProps }) {
           <title>Candee store</title>
         </Head>
         <Header />
-        <Component {...pageProps} />
+        <div className="max-w-[1200px] m-auto flex flex-col">
+          <Component {...pageProps} />
+        </div>
       </PersistGate>
     </Provider>
   );

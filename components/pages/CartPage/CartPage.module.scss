@@ -1,6 +1,4 @@
 .cart-page {
-  @apply max-w-[1200px] mx-auto;
-
   .cart-list {
     @apply w-1/2 flex flex-col gap-8 mt-8;
   }
@@ -24,6 +22,15 @@
     &:hover {
       @apply opacity-60;
     }
+  }
+  .input-number {
+    @apply w-[80px];
+    input {
+      @apply text-center;
+    }
+  }
+  .input-icon {
+    @apply cursor-pointer;
   }
 }
 

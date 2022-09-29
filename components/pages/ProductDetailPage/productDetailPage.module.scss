@@ -1,0 +1,47 @@
+.product-detail {
+  @apply flex pt-8 gap-8;
+  .image-container {
+    @apply w-[40%] border-[4px] border-red;
+  }
+  .product-info {
+  }
+  .product-name {
+    @apply text-lg font-medium mb-8;
+  }
+  .product-hsd {
+    @apply text-green font-medium ml-2;
+  }
+
+  .product-price {
+    @apply bg-gray p-4 mt-4;
+  }
+
+  .new-old-price {
+    @apply flex gap-4 items-end;
+  }
+
+  .new-price {
+    @apply text-lg text-green font-bold;
+  }
+
+  .old-price {
+    @apply line-through font-bold;
+  }
+
+  .discount {
+    @apply border-[1px] rounded-tr-full rounded-br-full rounded-tl-full px-2 py-1 bg-green text-white;
+  }
+
+  .quantity {
+    @apply flex flex-col gap-2 mt-4 w-[120px];
+    input {
+      @apply text-center;
+    }
+    .input-icon {
+      @apply cursor-pointer;
+    }
+  }
+  .add-cart-btn {
+    @apply bg-green text-white mt-4 border-[1px] flex justify-center items-center font-semibold rounded-md px-24 py-4;
+  }
+}

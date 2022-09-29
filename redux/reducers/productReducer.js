@@ -14,15 +14,35 @@ const productReducer = createSlice({
       state.loading = false;
     },
     addProduct: (state, action) => {
-      state.productList = [...state.productList, action.payload];
+      const addedProduct = action.payload;
+      const findProductExist = state.productList.find(
+        (perfume) => perfume.name === addedProduct.name
+      );
+      if (findProductExist) {
+        const addQuantityProduct = state.productList.map((perfume) => {
+          if (perfume.name === addedProduct.name) {
+            return {
+              ...perfume,
+              quantity: perfume.quantity ? perfume.quantity + 1 : 1,
+            };
+          }
+          return perfume;
+        });
+        state.productList = addQuantityProduct;
+      } else {
+        state.productList = [
+          ...state.productList,
+          { ...addedProduct, quantity: 1 },
+        ];
+      }
     },
-    removeProduct: (state, action) => {
+    updateProductList: (state, action) => {
       state.productList = action.payload;
     },
   },
 });
 
-export const { startLoading, stopLoading, addProduct, removeProduct } =
+export const { startLoading, stopLoading, addProduct, updateProductList } =
   productReducer.actions;
 
 export default productReducer.reducer;

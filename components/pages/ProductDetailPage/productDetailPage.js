@@ -1,11 +1,12 @@
 import { InputNumber, notification } from "antd";
-import { LIST_PRODUCT } from "components/ProductList/productList";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { cloneDeep } from "lodash";
+
 import { updateProductList } from "redux/reducers/productReducer";
 import { generateSlug } from "utils";
-import { cloneDeep } from "lodash";
+import { LIST_PRODUCT } from "components/ProductList/productList";
 
 import styles from "./productDetailPage.module.scss";
 

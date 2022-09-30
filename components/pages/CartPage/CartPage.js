@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { InputNumber } from "antd";
 import { DeleteOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
 import { updateProductList } from "redux/reducers/productReducer";
 
 import styles from "./CartPage.module.scss";
-import { InputNumber } from "antd";
 
 const InputNum = ({ quantity, onDecrease, onIncrease }) => {
   return (

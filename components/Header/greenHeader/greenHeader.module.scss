@@ -1,7 +1,7 @@
 @import "styles/variables.scss";
 
 .green-header {
-  @apply bg-green sticky top-0 left-0 block z-[1];
+  @apply bg-green sticky top-0 left-0 block z-[2];
 
   .green-header-content {
     @apply max-w-[1200px] mx-auto flex justify-between text-white cursor-pointer;

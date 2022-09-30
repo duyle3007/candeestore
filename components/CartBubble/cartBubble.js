@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useRouter } from "next/router";
+
+import { MOBILE_BREAKPOINT } from "components/Header/whiteHeader/whiteHeader";
 
 import styles from "./cartBubble.module.scss";
-import { useRouter } from "next/router";
-import { MOBILE_BREAKPOINT } from "components/Header/whiteHeader/whiteHeader";
 
 const CartBubble = () => {
   const router = useRouter();

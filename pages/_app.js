@@ -5,8 +5,9 @@ import Header from "components/Header/header";
 import { PersistGate } from "redux-persist/integration/react";
 import "antd/dist/antd.css";
 
-import "styles/globals.scss";
 import CartBubble from "components/CartBubble/cartBubble";
+
+import "styles/globals.scss";
 
 function Layout({ Component, pageProps }) {
   return (

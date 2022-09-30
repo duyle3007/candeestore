@@ -3,8 +3,6 @@ import { createContext, useState } from "react";
 import ProductList from "components/ProductList/productList";
 import Slider from "components/Slider/slider";
 
-import styles from "./homepage.module.scss";
-
 export const HomepageContext = createContext({});
 
 const Homepage = ({ sliders }) => {

@@ -27,16 +27,21 @@
     min-width: 100%;
     scroll-snap-align: start;
     text-align: center;
-    height: 220px;
   }
 
   .slides {
     @apply object-cover w-full;
+    position: absolute;
+    left: 0;
+    height: 390px;
+    img {
+      transition: all 0.3s;
+    }
   }
 
   .prev-btn,
   .next-btn {
-    @apply w-[58px] h-[58px] flex justify-center items-center rounded-full text-xl bg-[#DEDED2] absolute cursor-pointer;
+    @apply w-[58px] h-[58px] flex justify-center items-center rounded-full text-xl bg-[#DEDED2] absolute cursor-pointer z-[1];
     @apply top-1/2;
 
     transition: 0.3s all;
@@ -61,14 +66,21 @@
 
 @media screen and (max-width: $phone-max) {
   .slider-container {
-    height: 100%;
+    height: 160px;
+    .slides {
+      @apply h-[160px];
+    }
 
+    .prev-btn,
+    .next-btn {
+      @apply w-[32px] h-[32px] text-base top-[40%];
+    }
     .prev-btn {
-      @apply left-0 w-[32px] h-[32px] text-base;
+      @apply left-0;
     }
 
     .next-btn {
-      @apply right-0 w-[32px] h-[32px] text-base;
+      @apply right-0;
     }
   }
 }

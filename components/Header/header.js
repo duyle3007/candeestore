@@ -1,10 +1,10 @@
 import { useMemo } from "react";
+import { useRouter } from "next/router";
 
 import GreenHeader from "./greenHeader/greenHeader";
 import WhiteHeader, { MOBILE_BREAKPOINT } from "./whiteHeader/whiteHeader";
 
 import styles from "./header.module.scss";
-import { useRouter } from "next/router";
 
 const PAGE_WITHOUT_GREEN_HEADER = ["/cart", "/signup", "/login"];
 

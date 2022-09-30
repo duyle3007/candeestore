@@ -1,6 +1,7 @@
-import { SearchOutlined, CaretDownOutlined } from "@ant-design/icons";
+import { CaretDownOutlined } from "@ant-design/icons";
 
 import styles from "./dropdown.module.scss";
+
 const Dropdown = ({ title, menu }) => {
   return (
     <div className={styles["dropdown"]}>

@@ -1,9 +1,10 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { notification } from "antd";
-import { HomepageContext } from "components/pages/Homepage/homepage";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
+
+import { HomepageContext } from "components/pages/Homepage/homepage";
 import { addProduct } from "redux/reducers/productReducer";
 import { generateSlug } from "utils";
 

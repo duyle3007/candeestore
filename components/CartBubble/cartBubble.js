@@ -3,11 +3,16 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 
 import styles from "./cartBubble.module.scss";
 import { useRouter } from "next/router";
+import { MOBILE_BREAKPOINT } from "components/Header/whiteHeader/whiteHeader";
 
 const CartBubble = () => {
   const router = useRouter();
   const productList = useSelector((state) => state.product.productList);
-  if (productList.length === 0 || router.pathname === "/cart") {
+  if (
+    productList.length === 0 ||
+    router.pathname === "/cart" ||
+    window.innerWidth > MOBILE_BREAKPOINT
+  ) {
     return null;
   }
 

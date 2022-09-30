@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .product-detail {
   @apply flex pt-8 gap-8;
   .image-container {
@@ -43,5 +45,23 @@
   }
   .add-cart-btn {
     @apply bg-green text-white mt-4 border-[1px] flex justify-center items-center font-semibold rounded-md px-24 py-4;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .product-detail {
+    @apply flex-col;
+    .image-container {
+      @apply w-full border-0;
+    }
+    .product-info {
+      @apply px-4;
+    }
+    .new-old-price {
+      @apply gap-2;
+    }
+    .add-cart-btn {
+      @apply w-full;
+    }
   }
 }

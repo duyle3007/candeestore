@@ -1,10 +1,12 @@
-import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
 import { notification } from "antd";
-import Dropdown from "components/Dropdown/dropdown";
 import { signOut } from "firebase/auth";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
+import Dropdown from "components/Dropdown/dropdown";
 import { logout } from "redux/reducers/userReducer";
 import { auth } from "utils/firebase";
 
@@ -18,11 +20,21 @@ const LogoutButton = ({ onLogout }) => {
   );
 };
 
+export const MOBILE_BREAKPOINT = 767;
+
 const WhiteHeader = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.product.productList);
   const userData = useSelector((state) => state.user.userData);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < MOBILE_BREAKPOINT) {
+      setIsMobile(true);
+    }
+  }, []);
 
   const goToCart = () => {
     router.push("/cart");
@@ -53,10 +65,6 @@ const WhiteHeader = () => {
         <div className={styles["store-name"]}>
           <Link href="/">Candee Store</Link>
         </div>
-        {/* <div className={styles["search-bar"]}>
-          <input />
-          <SearchOutlined />
-        </div> */}
       </div>
 
       <div className={styles["right"]}>
@@ -73,10 +81,12 @@ const WhiteHeader = () => {
             <span onClick={goToSignup}>Signup</span>
           </div>
         )}
-        <div className={styles["cart"]} onClick={goToCart}>
-          <ShoppingCartOutlined />
-          Giỏ hàng ({productList.length})
-        </div>
+        {isMobile ? null : (
+          <div className={styles["cart"]} onClick={goToCart}>
+            <ShoppingCartOutlined />
+            Giỏ hàng ({productList.length})
+          </div>
+        )}
       </div>
     </div>
   );

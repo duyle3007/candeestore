@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import GreenHeader from "./greenHeader/greenHeader";
-import WhiteHeader from "./whiteHeader/whiteHeader";
+import WhiteHeader, { MOBILE_BREAKPOINT } from "./whiteHeader/whiteHeader";
 
 import styles from "./header.module.scss";
 import { useRouter } from "next/router";
@@ -12,8 +12,13 @@ const Header = () => {
   const router = useRouter();
   const isShowGreenHeader = useMemo(() => {
     const url = router.pathname;
+
+    // Wont show green header in mobile
+    if (window.innerWidth < MOBILE_BREAKPOINT) {
+      return false;
+    }
     return !PAGE_WITHOUT_GREEN_HEADER.some((page) => page === url);
-  });
+  }, [router]);
   return (
     <div className={styles["top-header"]}>
       <WhiteHeader />

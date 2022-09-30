@@ -66,6 +66,7 @@ const SignupPage = () => {
               name="full_name"
               value={formik.values.full_name}
               onChange={formik.handleChange}
+              placeholder="Nhập họ và tên"
             />
             {formik.errors.full_name && formik.touched.full_name && (
               <p className={styles["error-field"]}>{formik.errors.full_name}</p>
@@ -77,6 +78,7 @@ const SignupPage = () => {
               name="email"
               value={formik.values.email}
               onChange={formik.handleChange}
+              placeholder="Nhập email"
             />
             {formik.errors.email && formik.touched.email && (
               <p className={styles["error-field"]}>{formik.errors.email}</p>
@@ -87,6 +89,7 @@ const SignupPage = () => {
             <input
               type="password"
               name="password"
+              placeholder="Nhập mật khẩu"
               value={formik.values.password}
               onChange={formik.handleChange}
             />
@@ -99,6 +102,7 @@ const SignupPage = () => {
             <input
               type="password"
               name="confirm_password"
+              placeholder="Nhập lại mật khẩu"
               value={formik.values.confirm_password}
               onChange={formik.handleChange}
             />

@@ -73,6 +73,6 @@
 
 @media screen and (max-width: $phone-max) {
   .product-list {
-    @apply grid-cols-1;
+    @apply grid-cols-1 px-4 pb-16;
   }
 }

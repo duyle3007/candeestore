@@ -1,4 +1,5 @@
-.signup-page {
+@import "styles/variables.scss";
+.login-page {
   @apply max-w-[1200px] mx-auto;
 
   h1 {
@@ -26,5 +27,16 @@
   }
   .error-field {
     @apply text-red;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .login-page {
+    form {
+      @apply px-2 bg-white;
+      input {
+        @apply border-2 border-gray;
+      }
+    }
   }
 }

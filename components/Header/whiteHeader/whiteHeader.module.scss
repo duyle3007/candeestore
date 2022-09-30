@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .white-header {
   @apply flex bg-white w-full items-center py-6 justify-between;
   background: white;
@@ -40,5 +42,13 @@
 
   .cart {
     @apply flex items-center gap-3 cursor-pointer;
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .white-header {
+    .store-name {
+      @apply text-sm px-2;
+    }
   }
 }

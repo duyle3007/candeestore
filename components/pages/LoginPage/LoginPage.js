@@ -70,7 +70,7 @@ const LoginPage = () => {
 
   return (
     <Spin spinning={loading}>
-      <div className={styles["signup-page"]}>
+      <div className={styles["login-page"]}>
         <h1>Đăng nhập</h1>
         <form onSubmit={formik.handleSubmit}>
           <div className={styles["form-field"]}>
@@ -80,6 +80,7 @@ const LoginPage = () => {
               name="email"
               value={formik.values.email}
               onChange={formik.handleChange}
+              placeholder="Nhập email"
             />
             {formik.errors.email && formik.touched.email && (
               <p className={styles["error-field"]}>{formik.errors.email}</p>
@@ -90,6 +91,7 @@ const LoginPage = () => {
             <input
               type="password"
               name="password"
+              placeholder="Nhập mật khẩu"
               value={formik.values.password}
               onChange={formik.handleChange}
             />

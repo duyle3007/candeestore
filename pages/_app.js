@@ -6,6 +6,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import "antd/dist/antd.css";
 
 import "styles/globals.scss";
+import CartBubble from "components/CartBubble/cartBubble";
 
 function Layout({ Component, pageProps }) {
   return (
@@ -18,6 +19,7 @@ function Layout({ Component, pageProps }) {
         <div className="max-w-[1200px] m-auto flex flex-col">
           <Component {...pageProps} />
         </div>
+        <CartBubble />
       </PersistGate>
     </Provider>
   );

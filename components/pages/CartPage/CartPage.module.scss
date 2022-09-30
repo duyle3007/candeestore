@@ -1,3 +1,5 @@
+@import "styles/variables.scss";
+
 .cart-page {
   .cart-list {
     @apply w-1/2 flex flex-col gap-8 mt-8;
@@ -42,5 +44,19 @@
     font-size: 54px;
     filter: invert(27%) sepia(49%) saturate(1038%) hue-rotate(105deg)
       brightness(94%) contrast(102%);
+  }
+}
+
+@media screen and (max-width: $phone-max) {
+  .cart-page {
+    @apply px-2;
+    .cart-list {
+      @apply w-full;
+    }
+    .cart-item {
+      .delete-icon {
+        @apply top-16;
+      }
+    }
   }
 }

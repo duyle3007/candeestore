@@ -48,6 +48,16 @@
   }
 }
 
+.other-list {
+  @apply my-16;
+  h3 {
+    @apply text-lg font-bold;
+  }
+  .list-product {
+    @apply grid mx-auto mt-16 gap-16 grid-cols-5;
+  }
+}
+
 @media screen and (max-width: $phone-max) {
   .product-detail {
     @apply flex-col;

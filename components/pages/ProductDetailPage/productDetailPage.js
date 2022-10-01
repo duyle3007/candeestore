@@ -9,6 +9,7 @@ import { generateSlug } from "utils";
 import { LIST_PRODUCT } from "components/ProductList/productList";
 
 import styles from "./productDetailPage.module.scss";
+import ProductCard from "components/ProductCard/productCard";
 
 const ProductDetailPage = () => {
   const router = useRouter();
@@ -64,7 +65,7 @@ const ProductDetailPage = () => {
         setProductDetail(findProduct);
       }
     }
-  }, [router.isReady]);
+  }, [router]);
 
   const onDecrease = () => {
     if (quantity > 1) {
@@ -99,54 +100,66 @@ const ProductDetailPage = () => {
   }
 
   return (
-    <div className={styles["product-detail"]}>
-      <div className={styles["image-container"]}>
-        <img src={productDetail.url} />
-      </div>
-
-      <div className={styles["product-info"]}>
-        <div className={styles["product-name"]}>{productDetail.name}</div>
-        <div>
-          Hạn sử dụng:
-          <span className={styles["product-hsd"]}>{productDetail.hsd}</span>
+    <div className={styles["product-detail-container"]}>
+      <div className={styles["product-detail"]}>
+        <div className={styles["image-container"]}>
+          <img src={productDetail.url} />
         </div>
-        <div className={styles["product-price"]}>
-          <div className={styles["new-old-price"]}>
-            <div className={styles["new-price"]}>{newPrice}</div>
-            <div className={styles["old-price"]}>{oldPrice}</div>
-            <div className={styles["discount"]}>-{discountPercents}%</div>
+
+        <div className={styles["product-info"]}>
+          <div className={styles["product-name"]}>{productDetail.name}</div>
+          <div>
+            Hạn sử dụng:
+            <span className={styles["product-hsd"]}>{productDetail.hsd}</span>
           </div>
-          <div className={styles["save-price"]}>(Tiết kiệm: {savePrice})</div>
-        </div>
+          <div className={styles["product-price"]}>
+            <div className={styles["new-old-price"]}>
+              <div className={styles["new-price"]}>{newPrice}</div>
+              <div className={styles["old-price"]}>{oldPrice}</div>
+              <div className={styles["discount"]}>-{discountPercents}%</div>
+            </div>
+            <div className={styles["save-price"]}>(Tiết kiệm: {savePrice})</div>
+          </div>
 
-        <div className={styles["quantity"]}>
-          Số lượng:
-          <InputNumber
-            addonBefore={
-              <div
-                className={styles["input-icon"]}
-                onClick={() => onDecrease()}
-              >
-                -
-              </div>
-            }
-            addonAfter={
-              <div
-                className={styles["input-icon"]}
-                onClick={() => onIncrease()}
-              >
-                +
-              </div>
-            }
-            controls={false}
-            min={1}
-            value={quantity}
-          />
-        </div>
+          <div className={styles["quantity"]}>
+            Số lượng:
+            <InputNumber
+              addonBefore={
+                <div
+                  className={styles["input-icon"]}
+                  onClick={() => onDecrease()}
+                >
+                  -
+                </div>
+              }
+              addonAfter={
+                <div
+                  className={styles["input-icon"]}
+                  onClick={() => onIncrease()}
+                >
+                  +
+                </div>
+              }
+              controls={false}
+              min={1}
+              value={quantity}
+            />
+          </div>
 
-        <button className={styles["add-cart-btn"]} onClick={onAddCart}>
-          Thêm vào giỏ hàng
-        </button>
+          <button className={styles["add-cart-btn"]} onClick={onAddCart}>
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+      </div>
+      <div className={styles["other-list"]}>
+        <h3>Sản phẩm khác</h3>
+        <div className={styles["list-product"]}>
+          {LIST_PRODUCT.filter(
+            (product) => product.name !== productDetail.name
+          ).map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
       </div>
     </div>
   );

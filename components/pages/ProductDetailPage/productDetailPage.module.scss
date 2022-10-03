@@ -74,4 +74,10 @@
       @apply w-full;
     }
   }
+  .other-list {
+    @apply px-4;
+    .list-product {
+      @apply grid-cols-1;
+    }
+  }
 }

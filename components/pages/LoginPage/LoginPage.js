@@ -11,11 +11,17 @@ import { updateAccessToken, updateUserData } from "redux/reducers/userReducer";
 import useUserExist from "utils/hook/useUserExist";
 
 import styles from "./LoginPage.module.scss";
+import Slider from "components/Slider/slider";
 
 const FIREBASE_ERR_CODE = {
   "auth/user-not-found": "Không tìm thấy tài khoản",
   "auth/wrong-password": "Mật khẩu không đúng",
 };
+
+const LOGIN_SLIDERS = [
+  "https://cdn.shopify.com/s/files/1/2262/0069/products/857A7344_1_480x480.jpg?v=1618436617",
+  "https://cdn.shopify.com/s/files/1/0341/3458/9485/products/2021_03_Fenty_Bottle_20052_02_FINAL_72dpi_1200x1500_cb77a9d6-6b89-4eb2-a524-05fe41c86ff3_1200x.jpg?v=1628215380",
+];
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -71,37 +77,47 @@ const LoginPage = () => {
   return (
     <Spin spinning={loading}>
       <div className={styles["login-page"]}>
-        <h1>Đăng nhập</h1>
-        <form onSubmit={formik.handleSubmit}>
-          <div className={styles["form-field"]}>
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              placeholder="Nhập email"
-            />
-            {formik.errors.email && formik.touched.email && (
-              <p className={styles["error-field"]}>{formik.errors.email}</p>
-            )}
-          </div>
-          <div className={styles["form-field"]}>
-            <label>Mật khẩu</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Nhập mật khẩu"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-            />
-            {formik.errors.password && formik.touched.password && (
-              <p className={styles["error-field"]}>{formik.errors.password}</p>
-            )}
-          </div>
+        <Slider
+          sliderList={LOGIN_SLIDERS}
+          hideArrow
+          className={styles["slider-login"]}
+        />
 
-          <button type="submit">Đăng nhập</button>
-        </form>
+        <div className={styles["form-container"]}>
+          <h1>Đăng nhập</h1>
+          <form onSubmit={formik.handleSubmit}>
+            <div className={styles["form-field"]}>
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                placeholder="Nhập email"
+              />
+              {formik.errors.email && formik.touched.email && (
+                <p className={styles["error-field"]}>{formik.errors.email}</p>
+              )}
+            </div>
+            <div className={styles["form-field"]}>
+              <label>Mật khẩu</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Nhập mật khẩu"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+              />
+              {formik.errors.password && formik.touched.password && (
+                <p className={styles["error-field"]}>
+                  {formik.errors.password}
+                </p>
+              )}
+            </div>
+
+            <button type="submit">Đăng nhập</button>
+          </form>
+        </div>
       </div>
     </Spin>
   );

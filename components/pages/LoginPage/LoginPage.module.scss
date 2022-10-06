@@ -1,13 +1,24 @@
 @import "styles/variables.scss";
 .login-page {
-  @apply max-w-[1200px] mx-auto;
+  @apply max-w-[1200px] flex mx-auto h-[80%] pt-16 rounded-full;
 
   h1 {
     @apply text-lg font-semibold;
   }
 
+  .slider-login {
+    @apply w-[50%] h-full;
+  }
+
+  .form-container {
+    @apply flex flex-col w-[50%] justify-center;
+    h1 {
+      @apply text-center;
+    }
+  }
+
   form {
-    @apply flex flex-col px-64 bg-[#EEEEEE] rounded mt-8 py-8 gap-4;
+    @apply flex flex-col px-24 mt-16 rounded h-full py-8 gap-8;
     button {
       @apply px-8 py-4 bg-green text-white;
       &:hover {
@@ -22,7 +33,7 @@
       @apply mb-4 text-base font-semibold;
     }
     input {
-      @apply h-10 px-2;
+      @apply h-10 px-2 border-2 border-gray;
     }
   }
   .error-field {
@@ -32,6 +43,12 @@
 
 @media screen and (max-width: $phone-max) {
   .login-page {
+    .slider-login {
+      @apply hidden;
+    }
+    .form-container {
+      @apply w-full;
+    }
     form {
       @apply px-2 bg-white;
       input {

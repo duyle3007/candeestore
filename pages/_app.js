@@ -17,7 +17,7 @@ function Layout({ Component, pageProps }) {
           <title>Candee store</title>
         </Head>
         <Header />
-        <div className="max-w-[1200px] m-auto flex flex-col">
+        <div className="max-w-[1200px] m-auto flex flex-col h-[90%]">
           <Component {...pageProps} />
         </div>
         <CartBubble />

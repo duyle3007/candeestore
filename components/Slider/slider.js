@@ -5,7 +5,12 @@ import styles from "./slider.module.scss";
 
 const DEFAULT_AUTOPLAY_TIME = 3000;
 
-const Slider = ({ sliderList = [], autoplayTime = DEFAULT_AUTOPLAY_TIME }) => {
+const Slider = ({
+  sliderList = [],
+  autoplayTime = DEFAULT_AUTOPLAY_TIME,
+  hideArrow = false,
+  className,
+}) => {
   const [currentSlider, setCurrentSlider] = useState(0);
 
   useEffect(() => {
@@ -44,13 +49,17 @@ const Slider = ({ sliderList = [], autoplayTime = DEFAULT_AUTOPLAY_TIME }) => {
   };
 
   return (
-    <div className={styles["slider-container"]}>
-      <div className={styles["next-btn"]} onClick={onNextSlider}>
-        <RightOutlined />
-      </div>
-      <div className={styles["prev-btn"]} onClick={onPrevSlider}>
-        <LeftOutlined />
-      </div>
+    <div className={`${styles[`slider-container`]} ${className}`}>
+      {!hideArrow ? (
+        <>
+          <div className={styles["next-btn"]} onClick={onNextSlider}>
+            <RightOutlined />
+          </div>
+          <div className={styles["prev-btn"]} onClick={onPrevSlider}>
+            <LeftOutlined />
+          </div>
+        </>
+      ) : null}
       <div className={styles["slider"]}>
         {sliderList.map((slider, index) => (
           <div className={styles["slide-item"]} key={`slider ${index}`}>

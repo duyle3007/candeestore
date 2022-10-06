@@ -10,3 +10,9 @@ body {
   padding: 0px;
   position: relative;
 }
+
+#__next,
+.ant-spin-nested-loading,
+.ant-spin-container {
+  height: 100%;
+}

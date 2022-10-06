@@ -1,14 +1,14 @@
 // we can name class name as camel case and using styles.className
 // or we can using traditional class name like class-name and using styles['class-name']
 
-@import 'styles/variables.scss';
+@import "styles/variables.scss";
 
 .top-header {
-  @apply contents;
+  @apply contents h-[9%];
 }
 
 @media screen and (max-width: $phone-max) {
   .headerWrapper {
-    background: red
+    background: red;
   }
 }

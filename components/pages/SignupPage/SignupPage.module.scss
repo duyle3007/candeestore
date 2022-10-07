@@ -9,6 +9,10 @@
     backdrop-filter: blur(6px);
   }
 
+  .back-btn {
+    @apply cursor-pointer rounded-full w-[52px] h-[52px] bg-black flex justify-center items-center absolute top-[32px];
+  }
+
   h1 {
     @apply text-xl font-semibold text-white self-center;
   }
@@ -38,6 +42,16 @@
   .error-field {
     @apply text-red;
   }
+
+  .extra-text {
+    @apply text-center;
+    a {
+      @apply text-red font-semibold text-[18px];
+    }
+    .or-go-back {
+      @apply hidden opacity-60;
+    }
+  }
 }
 
 @media screen and (max-width: $phone-max) {
@@ -45,9 +59,17 @@
     form {
       @apply px-2;
     }
+    .back-btn {
+      @apply hidden;
+    }
     .form-field {
       input {
         @apply border-2 border-gray;
+      }
+    }
+    .extra-text {
+      .or-go-back {
+        @apply block;
       }
     }
   }

@@ -4,7 +4,7 @@ import { notification } from "antd";
 import { signOut } from "firebase/auth";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Dropdown from "components/Dropdown/dropdown";
 import { logout } from "redux/reducers/userReducer";
@@ -26,10 +26,18 @@ export const MOBILE_BREAKPOINT = 767;
 const WhiteHeader = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
   const productList = useSelector((state) => state.product.productList);
   const userData = useSelector((state) => state.user.userData);
 
   const [isMobile, setIsMobile] = useState(false);
+
+  const isShowCart = useMemo(() => {
+    if (isMobile || !token) {
+      return false;
+    }
+    return true;
+  });
 
   useEffect(() => {
     if (window.innerWidth < MOBILE_BREAKPOINT) {
@@ -83,12 +91,12 @@ const WhiteHeader = () => {
             <span onClick={goToSignup}>Signup</span>
           </div>
         )}
-        {isMobile ? null : (
+        {isShowCart ? (
           <div className={styles["cart"]} onClick={goToCart}>
             <ShoppingCartOutlined />
             Giỏ hàng ({productList.length})
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

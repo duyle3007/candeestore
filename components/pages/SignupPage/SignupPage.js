@@ -3,13 +3,15 @@ import * as Yup from "yup";
 import { notification, Spin } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { LeftOutlined } from "@ant-design/icons";
 
 import { registerWithEmailAndPassword } from "utils/firebase";
 import { startLoading, stopLoading } from "redux/reducers/productReducer";
 import useUserExist from "utils/hook/useUserExist";
+import { FIREBASE_ERR_CODE } from "../LoginPage/LoginPage";
 
 import styles from "./SignupPage.module.scss";
-import { FIREBASE_ERR_CODE } from "../LoginPage/LoginPage";
+import Link from "next/link";
 
 const SignupPage = () => {
   const loading = useSelector((state) => state.product.loading);
@@ -17,6 +19,10 @@ const SignupPage = () => {
   const router = useRouter();
 
   useUserExist();
+
+  const goBack = () => {
+    router.back();
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -64,7 +70,9 @@ const SignupPage = () => {
       <div className={styles["signup-page"]}>
         <div className={styles["signup-form"]}>
           <h1>Đăng ký</h1>
-
+          <div className={styles["back-btn"]} onClick={goBack}>
+            <LeftOutlined />
+          </div>
           <form onSubmit={formik.handleSubmit}>
             <div className={styles["form-field"]}>
               <label>Họ và tên</label>
@@ -126,6 +134,14 @@ const SignupPage = () => {
             </div>
             <button type="submit">Đăng ký</button>
           </form>
+          <div className={styles["extra-text"]}>
+            <div className={styles["have-account"]}>
+              Already have account? <Link href="/login">Login</Link>
+            </div>
+            <div className={styles["or-go-back"]} onClick={goBack}>
+              or go back
+            </div>
+          </div>
         </div>
       </div>
     </Spin>

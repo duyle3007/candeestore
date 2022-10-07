@@ -5,14 +5,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   .signup-form {
-    @apply flex flex-col text-white rounded-lg w-[800px] py-8;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(
-      90deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(27, 27, 172, 1) 35%,
-      rgba(0, 212, 255, 1) 100%
-    );
+    @apply flex flex-col  text-white rounded-lg w-[800px] py-8;
+    backdrop-filter: blur(6px);
   }
 
   h1 {
@@ -39,7 +33,7 @@
     }
   }
   button {
-    @apply mt-6 font-semibold text-[22px];
+    @apply mt-6 font-semibold text-[22px] rounded;
   }
   .error-field {
     @apply text-red;
@@ -49,7 +43,7 @@
 @media screen and (max-width: $phone-max) {
   .signup-page {
     form {
-      @apply px-2 bg-white;
+      @apply px-2;
     }
     .form-field {
       input {

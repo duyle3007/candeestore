@@ -15,6 +15,7 @@ const ProductDetailPage = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.product.productList);
+  const token = useSelector((state) => state.user.token);
   const [productDetail, setProductDetail] = useState();
   const [quantity, setQuantity] = useState(1);
 
@@ -78,6 +79,10 @@ const ProductDetailPage = () => {
   };
 
   const onAddCart = () => {
+    if (!token) {
+      notification.warning({ message: "Vui lòng đăng nhập để thêm sản phẩm" });
+      return;
+    }
     const productIndex = productList.findIndex(
       (product) => product.name === productDetail.name
     );

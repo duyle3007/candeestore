@@ -1,13 +1,26 @@
 @import "styles/variables.scss";
 .signup-page {
-  @apply max-w-[1200px] mx-auto;
+  @apply w-full h-full flex justify-center items-center;
+  background-image: url("https://cdn.mos.cms.futurecdn.net/i6TrBy2mwK8v5nkWfwjuRM.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .signup-form {
+    @apply flex flex-col text-white rounded-lg w-[800px] py-8;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(27, 27, 172, 1) 35%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
 
   h1 {
-    @apply text-lg font-semibold;
+    @apply text-xl font-semibold text-white self-center;
   }
 
   form {
-    @apply flex flex-col px-64 bg-[#EEEEEE] rounded mt-8 py-8 gap-4;
+    @apply flex flex-col px-28 rounded mt-8 py-8 gap-4;
     button {
       @apply px-8 py-4 bg-green text-white;
       &:hover {
@@ -22,8 +35,11 @@
       @apply mb-4 text-base font-semibold;
     }
     input {
-      @apply h-10 px-2;
+      @apply h-10 px-2 text-black rounded;
     }
+  }
+  button {
+    @apply mt-6 font-semibold text-[22px];
   }
   .error-field {
     @apply text-red;

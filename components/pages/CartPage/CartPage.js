@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputNumber } from "antd";
 import { DeleteOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
 import { updateProductList } from "redux/reducers/productReducer";
+import { useRouter } from "next/router";
 
 import styles from "./CartPage.module.scss";
 
@@ -30,8 +31,16 @@ const InputNum = ({ quantity, onDecrease, onIncrease }) => {
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const token = useSelector((state) => state.user.token);
   const productList = useSelector((state) => state.product.productList);
   const [finishPay, setFinishPay] = useState(false);
+
+  useEffect(() => {
+    if (!token) {
+      router.push("/");
+    }
+  }, [token]);
 
   const onDeleteItem = (item) => {
     const removeSelectedItem = productList.filter(

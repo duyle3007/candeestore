@@ -13,9 +13,10 @@ import useUserExist from "utils/hook/useUserExist";
 import styles from "./LoginPage.module.scss";
 import Slider from "components/Slider/slider";
 
-const FIREBASE_ERR_CODE = {
+export const FIREBASE_ERR_CODE = {
   "auth/user-not-found": "Không tìm thấy tài khoản",
   "auth/wrong-password": "Mật khẩu không đúng",
+  "auth/invalid-email": "Email không hợp lệ",
 };
 
 const LOGIN_SLIDERS = [

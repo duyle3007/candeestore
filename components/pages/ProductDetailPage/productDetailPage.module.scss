@@ -1,5 +1,8 @@
 @import "styles/variables.scss";
 
+.product-detail-container {
+  @apply max-w-[1200px] mx-auto;
+}
 .product-detail {
   @apply flex pt-8 gap-8;
   .image-container {

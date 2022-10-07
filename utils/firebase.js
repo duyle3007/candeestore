@@ -1,3 +1,5 @@
+import { notification } from "antd";
+import { FIREBASE_ERR_CODE } from "components/pages/LoginPage/LoginPage";
 import { initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
@@ -71,8 +73,14 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       email,
     });
   } catch (err) {
+    const firebaseCode = err.message?.substring(
+      err.message?.indexOf("(") + 1,
+      err.message?.lastIndexOf(")")
+    );
+
+    const errMessage = FIREBASE_ERR_CODE[firebaseCode];
+    notification.error({ message: errMessage || "Something went wrong" });
     console.error(err);
-    alert(err.message);
   }
 };
 

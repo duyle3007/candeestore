@@ -6,7 +6,8 @@ import WhiteHeader, { MOBILE_BREAKPOINT } from "./whiteHeader/whiteHeader";
 
 import styles from "./header.module.scss";
 
-const PAGE_WITHOUT_GREEN_HEADER = ["/cart", "/signup", "/login"];
+export const PAGE_WITHOUT_GREEN_HEADER = ["/cart", "/signup", "/login"];
+export const PAGE_WITHOUT_WHITE_HEADER = ["/signup"];
 
 const Header = () => {
   const router = useRouter();
@@ -19,9 +20,15 @@ const Header = () => {
     }
     return !PAGE_WITHOUT_GREEN_HEADER.some((page) => page === url);
   }, [router]);
+
+  const isShowWhiteHeader = useMemo(() => {
+    const url = router.pathname;
+
+    return !PAGE_WITHOUT_WHITE_HEADER.some((page) => page === url);
+  }, [router]);
   return (
     <div className={styles["top-header"]}>
-      <WhiteHeader />
+      {isShowWhiteHeader ? <WhiteHeader /> : <div />}
       {isShowGreenHeader ? <GreenHeader /> : <div />}
     </div>
   );

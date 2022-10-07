@@ -1,7 +1,7 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { notification } from "antd";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addProduct } from "redux/reducers/productReducer";
 import { generateSlug } from "utils";
@@ -11,8 +11,13 @@ import styles from "./productCard.module.scss";
 const ProductCard = ({ product }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
 
   const addProductToCart = (product) => {
+    if (!token) {
+      notification.warning({ message: "Vui lòng đăng nhập để thêm sản phẩm" });
+      return;
+    }
     dispatch(addProduct(product));
     notification.success({ message: "Đã thêm sản phẩm" });
   };

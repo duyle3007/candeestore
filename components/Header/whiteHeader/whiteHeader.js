@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import Dropdown from "components/Dropdown/dropdown";
 import { logout } from "redux/reducers/userReducer";
+import { updateProductList } from "redux/reducers/productReducer";
 import { auth } from "utils/firebase";
 
 import styles from "./whiteHeader.module.scss";
@@ -52,6 +53,7 @@ const WhiteHeader = () => {
     try {
       await signOut(auth);
       dispatch(logout());
+      dispatch(updateProductList([]));
       notification.success({ message: "Logout successfully" });
     } catch (err) {
       notification.error({ message: err.message || "Something went wrong" });

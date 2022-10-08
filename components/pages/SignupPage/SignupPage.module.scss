@@ -46,7 +46,7 @@
   .extra-text {
     @apply text-center;
     a {
-      @apply text-red font-semibold text-[18px];
+      @apply text-[#ffebcd] font-semibold text-[18px] underline;
     }
     .or-go-back {
       @apply hidden opacity-60;

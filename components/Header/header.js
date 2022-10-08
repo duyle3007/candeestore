@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { forwardRef, useMemo } from "react";
 import { useRouter } from "next/router";
 
 import GreenHeader from "./greenHeader/greenHeader";
@@ -9,7 +9,7 @@ import styles from "./header.module.scss";
 export const PAGE_WITHOUT_GREEN_HEADER = ["/cart", "/signup", "/login"];
 export const PAGE_WITHOUT_WHITE_HEADER = ["/signup"];
 
-const Header = () => {
+const Header = forwardRef((_, ref) => {
   const router = useRouter();
   const isShowGreenHeader = useMemo(() => {
     const url = router.pathname;
@@ -27,11 +27,11 @@ const Header = () => {
     return !PAGE_WITHOUT_WHITE_HEADER.some((page) => page === url);
   }, [router]);
   return (
-    <div className={styles["top-header"]}>
+    <div ref={ref} className={styles["top-header"]}>
       {isShowWhiteHeader ? <WhiteHeader /> : <div />}
       {isShowGreenHeader ? <GreenHeader /> : <div />}
     </div>
   );
-};
+});
 
 export default Header;

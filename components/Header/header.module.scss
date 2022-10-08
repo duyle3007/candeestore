@@ -4,7 +4,6 @@
 @import "styles/variables.scss";
 
 .top-header {
-  @apply contents h-[9%];
 }
 
 @media screen and (max-width: $phone-max) {
